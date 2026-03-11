@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dr. Karthik's Dental Clinic</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+.topbar i{
+color:#555;
+margin-right:6px;
+}
+
+body{
+font-family:Poppins;
+margin:0;
+background:#f6f9fc;
+color:#333;
+scroll-behavior:smooth;
+}
+
+/* TOP INFO BAR */
+
+.topbar{
+background:#eef4fb;
+color:#1c3c5b;
+font-size:14px;
+padding:6px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.topbar span{
+margin-right:20px;
+}
+
+/* NAVBAR */
+
+nav{
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+position:sticky;
+top:0;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+z-index:999;
+}
+
+nav h2{
+margin:0;
+color:#1c3c5b;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+margin:0;
+padding:0;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+nav a:hover{
+color:#4a90e2;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:80px 20px;
+background:white;
+animation:fadeIn 1s ease;
+}
+
+header h1{
+font-size:48px;
+margin-bottom:10px;
+color:#1c3c5b;
+}
+
+header p{
+color:#666;
+}
+
+/* HERO SECTION */
+
+.hero{
+height:420px;
+background:linear-gradient(rgba(28,60,91,0.65),rgba(28,60,91,0.65)),url('images/clinic-hero.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:54px;
+margin-bottom:10px;
+animation:fadeUp 1s ease;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:25px;
+animation:fadeUp 1.5s ease;
+}
+
+.hero-btn{
+background:#4a90e2;
+color:white;
+padding:14px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.hero-btn:hover{
+background:#1c3c5b;
+}
+
+/* HIGHLIGHT */
+
+.highlight{
+background:#e8f1fb;
+color:#1c3c5b;
+text-align:center;
+padding:15px;
+font-weight:600;
+border-top:2px solid #d4af37;
+}
+
+/* EXPERIENCE */
+
+.counters{
+display:flex;
+justify-content:center;
+padding:40px;
+background:white;
+}
+
+.counter{
+text-align:center;
+}
+
+.counter h2{
+font-size:50px;
+color:#4a90e2;
+margin:0;
+}
+
+.counter p{
+font-weight:600;
+}
+
+/* SECTIONS */
+
+section{
+padding:70px 10%;
+animation:fadeUp 1s ease;
+}
+
+.section-title{
+text-align:center;
+font-size:32px;
+margin-bottom:40px;
+color:#1c3c5b;
+}
+
+/* FOUNDER */
+
+.founder{
+display:flex;
+align-items:center;
+gap:40px;
+background:white;
+padding:70px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.founder img{
+width:450px;
+border-radius:10px;
+}
+
+/* DOCTORS */
+
+.doctors{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+opacity:0;
+transform:translateY(30px);
+transition:0.6s;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* SERVICES */
+
+.services{
+columns:3;
+line-height:2;
+}
+
+/* REVIEWS */
+
+.reviews{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.review{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+border-left:4px solid #4a90e2;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:10px;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+transition:0.4s;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* BEFORE AFTER */
+
+.beforeafter{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.case{
+background:white;
+border-radius:10px;
+padding:20px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+.case h4{
+text-align:center;
+margin-bottom:10px;
+color:#1c3c5b;
+}
+
+.case-images{
+display:flex;
+gap:10px;
+}
+
+.case-images img{
+width:50%;
+height:180px;
+object-fit:cover;
+border-radius:8px;
+}
+
+/* MAP */
+
+.map iframe{
+width:100%;
+height:400px;
+border:0;
+border-radius:10px;
+}
+
+/* CONTACT */
+
+.contact{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+.contact h3{
+color:#1c3c5b;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:14px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* FOOTER */
+
+footer{
+background:#1c3c5b;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+footer span{
+color:#d4af37;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* HAMBURGER MENU */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* MOBILE MENU */
+
+@media (max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+nav{
+flex-wrap:wrap;
+}
+
+nav ul{
+width:100%;
+flex-direction:column;
+display:none;
+background:white;
+margin-top:10px;
+}
+
+nav ul.show{
+display:flex;
+}
+
+nav ul li{
+text-align:center;
+padding:10px;
+border-top:1px solid #eee;
+}
+
+}
+
+/* MOBILE OPTIMIZATION */
+
+@media (max-width:768px){
+
+/* NAVBAR */
+
+nav{
+flex-direction:column;
+align-items:center;
+gap:10px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+font-size:14px;
+}
+
+/* HEADER */
+
+header{
+padding:50px 20px;
+}
+
+header h1{
+font-size:32px;
+}
+
+/* FOUNDER SECTION */
+
+.founder{
+flex-direction:column;
+text-align:center;
+}
+
+.founder img{
+width:220px;
+}
+
+/* COUNTERS */
+
+.counters{
+flex-direction:column;
+gap:15px;
+text-align:center;
+}
+
+/* SERVICES */
+
+.services{
+columns:1;
+}
+
+/* DOCTOR CARDS */
+
+.card img{
+height:200px;
+}
+
+/* GALLERY */
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+/* BEFORE AFTER */
+
+.before-after{
+grid-template-columns:1fr;
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+bottom:15px;
+right:15px;
+padding:12px 16px;
+font-size:14px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+
+<div>
+<span><i class="fa-solid fa-phone"></i> +91 97391 63913</span>
+<span><i class="fa-solid fa-location-dot"></i> Vijayapura, Bengaluru Rural</span>
+</div>
+
+<div>
+<span><i class="fa-regular fa-clock"></i> 11AM–8:30PM </span>
+</div>
+
+</div>
+
+<nav>
+
+<h2>Dr. Karthik's Dental Clinic</h2>
+
+<div class="menu-toggle" id="menu-toggle">
+☰
+</div>
+
+<ul id="nav-links">
+<li><a href="#founder">Founder</a></li>
+<li><a href="#doctors">Doctors</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#location">Location</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div>
+
+<h1>Dr. Karthik's Dental Clinic</h1>
+
+<p>Advanced Dental Care in Vijayapura • Devanahalli Taluk • Bengaluru Rural</p>
+
+<a class="hero-btn" href="https://wa.me/919739163913">
+Book Appointment
+</a>
+
+</div>
+
+</section>
+
+<div class="highlight">
+First Dental Clinic in Devanahalli Taluk & Bengaluru Rural District with Advanced CT Scan and Intra Oral Scanner Technology
+</div>
+
+<div class="counters">
+
+<div class="counter">
+<h2>10+</h2>
+<p>Years of Experience</p>
+</div>
+
+</div>
+
+<section id="founder">
+
+<h2 class="section-title">Founder</h2>
+
+<div class="founder">
+
+<img src="images/dr-karthik.jpeg">
+
+<div>
+
+<h3>Dr. Karthik Charan Gowda Y.K.</h3>
+
+<p><b>BDS</b></p>
+
+<p>RCT Specialist</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="doctors">
+
+<h2 class="section-title">Our Specialists</h2>
+
+<div class="doctors">
+
+<div class="card"><img src="images/dr-prasoon.jpeg"><h3>Dr. Prasoon</h3><p>Maxillofacial Surgeon</p></div>
+<div class="card"><img src="images/dr-koushik.jpeg"><h3>Dr. Koushik</h3><p>Prosthodontist</p></div>
+<div class="card"><img src="images/dr-vishnu.jpeg"><h3>Dr. Vishnu</h3><p>Periodontist</p></div>
+<div class="card"><img src="images/dr-bharath.jpeg"><h3>Dr. Bharath</h3><p>Endodontist</p></div>
+<div class="card"><img src="images/dr-sachin.jpeg"><h3>Dr. Sachin</h3><p>Orthodontist</p></div>
+<div class="card"><img src="images/dr-divya.jpeg"><h3>Dr. Divya</h3><p>Dentist</p></div>
+<div class="card"><img src="images/dr-sneha.jpeg"><h3>Dr. Sneha</h3><p>Oral Medicine</p></div>
+<div class="card"><img src="images/dr-navya.jpeg"><h3>Dr. Navya</h3><p>Dentist</p></div>
+<div class="card"><img src="images/dr-sahana.jpeg"><h3>Dr. Sahana</h3><p>Child Specialist</p></div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2 class="section-title">Treatments & Services</h2>
+
+<ul class="services">
+
+<li>Root Canal Treatment</li>
+<li>Re Root Canal Treatment</li>
+<li>Extraction</li>
+<li>Cleaning & Scaling</li>
+<li>Aligners & Braces</li>
+<li>Smile Designing</li>
+<li>Dental Fillings</li>
+<li>Complete Denture</li>
+<li>Dental Implants</li>
+<li>Gum Surgery</li>
+<li>Dimple Creation Surgery</li>
+<li>Orthognathic Surgery</li>
+<li>Genoplasty</li>
+<li>Ear Lobe Repair</li>
+<li>Rhinoplasty</li>
+<li>Oral Cancer Screening</li>
+<li>Facial Trauma Reconstruction</li>
+<li>Blepharoplasty</li>
+<li>Children Dental Care</li>
+<li>Dental Jewellery</li>
+<li>Laser Therapy</li>
+<li>Maxillary Bone Expansion</li>
+<li>Thumb Sucking Treatment</li>
+<li>Tongue Thrusting Treatment</li>
+<li>Bruxism Treatment</li>
+<li>Space Maintainers</li>
+<li>Splinting & Re-Implantation</li>
+<li>RPD & all Dental Treatments</li>
+
+</ul>
+
+</section>
+
+<section id="reviews">
+
+<h2 class="section-title">Patient Reviews</h2>
+
+<div class="reviews">
+
+<div class="review">★★★★★ Excellent treatment and caring doctors.</div>
+<div class="review">★★★★★ Very clean clinic and advanced technology.</div>
+<div class="review">★★★★★ Best dental clinic near Vijayapura.</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2 class="section-title">Clinic Gallery</h2>
+
+<div class="gallery">
+
+<img src="images/clinic1.jpeg">
+<img src="images/clinic2.jpeg">
+<img src="images/clinic3.jpeg">
+<img src="images/clinic4.jpeg">
+<img src="images/clinic5.jpeg">
+<img src="images/clinic6.jpeg">
+<img src="images/clinic7.jpeg">
+<img src="images/clinic8.jpeg">
+
+</div>
+
+</section>
+
+<section id="beforeafter">
+
+<h2 class="section-title">Before & After Results</h2>
+
+<div class="beforeafter">
+
+<div class="case">
+
+
+
+<div class="case-images">
+<img src="images/before1.jpeg">
+<img src="images/after1.jpeg">
+</div>
+
+</div>
+
+<div class="case">
+
+
+
+<div class="case-images">
+<img src="images/before2.jpeg">
+<img src="images/after2.jpeg">
+</div>
+
+</div>
+
+<div class="case">
+
+
+
+<div class="case-images">
+<img src="images/before3.jpeg">
+<img src="images/after3.jpeg">
+</div>
+
+</div>
+
+</section>
+
+<section id="location">
+
+<h2 class="section-title">Our Location</h2>
+
+<div class="map">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17877.289545526102!2d77.79151785850425!3d13.297295392779581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb1fdcf6499cde3%3A0xc4ec2ac5ead7a8c7!2sDr.%20Karthik%27s%20Dental%20Clinic!5e1!3m2!1sen!2sin!4v1773212991922!5m2!1sen!2sin"></iframe>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Contact & Working Hours</h2>
+
+<div class="contact">
+
+<div>
+
+<h3>Address</h3>
+
+
+<h3>Dr. Karthik's Dental Clinic</h3>
+<p>
+1st Floor, above Dinesh Jewellers<br>
+Opp. Ramamandira street<br>
+Vijayapura Town<br>
+Bengaluru Rural<br>
+
+</p>
+
+<p><b>Phone:</b> +91 97391 63913
+
++91 8880262566</p>
+
+</div>
+
+<div>
+
+<h3>Working Hours</h3>
+
+<p>11:00 AM – 8:30 PM</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Dr. Karthik's Dental Clinic
+
+<br><br>
+
+<span>Website by Ax</span>
+
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919739163913">Book Appointment</a>
+
+<script>
+
+const cards=document.querySelectorAll('.card');
+
+window.addEventListener('scroll',()=>{
+
+cards.forEach(card=>{
+
+const top=card.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+
+card.classList.add('show');
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
